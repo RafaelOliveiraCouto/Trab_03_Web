@@ -1,0 +1,30 @@
+# version: '3' -> obsoleto
+services:
+  pgsql-invest: 
+    image: postgres:16-alpine
+
+    ports:
+      # HOST:CONTAINER
+      - "9001:5432"
+    environment:
+      - POSTGRES_USER=pg-pgsql-master
+      - POSTGRES_PASSWORD=pgsql-investe-password
+    volumes:
+      - ./01-create-database-investe.sql:/docker-entrypoint-initdb.d/01-create-database-investe.sql
+    networks:
+      - backend
+
+  pgadmin1: 
+    image: dpage/pgadmin4:9.3.0
+    ports:
+      - "8111:80"
+      - "8444:443"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=Trabweb@ufop.edu.br
+      - PGADMIN_DEFAULT_PASSWORD=123456
+    networks:
+      - backend
+
+networks:
+  frontend:
+  backend:

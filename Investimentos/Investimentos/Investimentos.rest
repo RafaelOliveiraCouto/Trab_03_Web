@@ -1,0 +1,71 @@
+### Pega todos os Usuario
+GET http://localhost:9090/user
+
+### Cria um Usuario
+POST http://localhost:9090/user
+Content-Type: application/json
+
+{
+    "name":             "Joe",
+    "email":            "Joe@gmail.com",
+    "password":         "JJ",
+    "userType":         "CUSTOMER"
+}
+
+### Pega o usuario pelo Id
+GET http://localhost:9090/user/de921ecf-77b8-475b-b6d7-3bb5a3f4f4fc
+
+### Atualiza o Usuario
+PUT http://localhost:9090/user
+Content-Type: application/json
+
+{
+    "id":               "de921ecf-77b8-475b-b6d7-3bb5a3f4f4fc",
+    "name":             "JoeFF",
+    "email":            "Joe@gmail.com",
+    "password":         "JJ",
+    "userType":         "CUSTOMER"
+}
+
+### Remove o Usuario
+DELETE http://localhost:9090/user/remove
+Content-Type: application/json
+
+{
+    "id": "de921ecf-77b8-475b-b6d7-3bb5a3f4f4fc"
+}
+
+##############################
+
+### Pega todos os Investimentos
+GET http://localhost:9090/investments
+
+### Pega um tipo de Investimento
+GET http://localhost:9090/investments/CRIPTO
+
+### Cria um Investimento
+POST http://localhost:9090/investments
+Content-Type: application/json
+
+{
+    "type":             "CRIPTO",
+    "symbol":           "Bitcoin",
+    "quantity":         10,
+    "purchasePrice":    633238.68,
+    "userId":           "d001f482-3d1a-4bed-a2b3-e11fe5183475"
+}
+
+### Atualiza o Investimento
+PUT http://localhost:9090/investments/1148b5e9-3632-42fa-8128-776052a34ce3
+Content-Type: application/json
+
+{
+    "type":             "ACAO",
+    "symbol":           "Oi",
+    "quantity":         10,
+    "purchasePrice":    0.59,
+    "purchaseDate":     "2025-08-23T23:00:00"
+}
+
+### Remove o Investimento
+DELETE http://localhost:9090/investments/1148b5e9-3632-42fa-8128-776052a34ce3
